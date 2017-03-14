@@ -14,8 +14,10 @@ npm install jshint --save-dev
 npm install gulp-jshint --save-dev
 npm install browser-sync --save-dev
 
+
 npm install bower -g
 bower init
+npm install bower-files --save-dev
 bower install jquery --save
 bower install bootstrap --save
 
@@ -35,4 +37,5 @@ Del: clean utility to delete builds before re-creating
 Gulp Utility: allows creation of environment variables
 JS Hint: Javascript linter
 Bower: Front end dependency manager
+Bower-Files: get stuff out of bootstrap
 BrowserSync: Development server utility

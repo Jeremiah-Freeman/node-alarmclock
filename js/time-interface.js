@@ -1,8 +1,24 @@
 var Alarm = require('./../js/Alarm.js').alarmModule;
 
 $(document).ready(function() {
-  // create object with alarm time
-  // set interval(draw current time, check if equal to alarm, trigger if equal)
-  setInterval($('#time').text(moment()),1000);
+
+  function showTime() {
+    $('#time').text(moment().format("h:mm:ss a"));
+  }
+  setInterval(showTime,1000);
+
+  $("#input").submit(function(event) {
+    event.preventDefault();
+    var alarm = $('#alarm').val();
+    var newAlarm = new Alarm(alarm);
+    $('#alarmTime').text(moment(alarm,"H:mm").format("h:m:ss a"));
+    // $('#alarmTime').text(alarm);
+    function goOff() {
+      if (newAlarm.checkAlarm()) {
+        alert("Wake the Frak up!");
+      }
+    }
+    setInterval(goOff,1000);
+  });
 
 });
