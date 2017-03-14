@@ -19,6 +19,8 @@ bower init
 bower install jquery --save
 bower install bootstrap --save
 
+bower install moment --save
+
 
 
 Dependencies (what do these thing do?):
