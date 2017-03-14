@@ -7,11 +7,11 @@ $(document).ready(function() {
   }
   setInterval(showTime,1000);
 
-  $("#input").submit(function(event) {
+  $("#inputAlarm").submit(function(event) {
     event.preventDefault();
     var alarm = $('#alarm').val();
     var newAlarm = new Alarm(alarm);
-    $('#alarmTime').text(moment(alarm,"H:mm").format("h:m:ss a"));
+    $('#alarmTime').text(newAlarm.alarmTime.format("h:mm:ss a"));
     // $('#alarmTime').text(alarm);
     function goOff() {
       if (newAlarm.checkAlarm()) {
@@ -19,6 +19,16 @@ $(document).ready(function() {
       }
     }
     setInterval(goOff,1000);
+
+    console.log(newAlarm.alarmTime.format("h:mm:ss a"));
+    console.log(typeof newAlarm.alarmTime.format("h:mm:ss a"));
+
+    function countDown() {
+      var time = newAlarm.alarmTime.fromNow();
+      $('#alarmCount').text(time);
+    }
+    setInterval(countDown,1000);
   });
+
 
 });
